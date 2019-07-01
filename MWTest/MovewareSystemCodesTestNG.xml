@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<!-- <suite name="HomePage-System" parallel="false" thread-count = "1"> -->
+<suite name="HomePage-System">
+	
+  <test name="CodesNonUI">
+ 	<!--<groups>
+ 		<define name = "all">
+ 			<include name = "checkinTest"/>
+ 			<include name = "funcTest"/>
+ 		</define>
+ 		<run>
+ 			<include name = "all"/>
+		</run>
+		
+ 	</groups>-->
+ 	<!-- Enter Test cases ID's by , seperated for similar test Cases.  Ex: addCodesNumberTestCaseID, value TC_01,TC_03,TC_04 -->
+ 	<parameter name="TestName" value="System->Codes Non UIC" />
+ 	<parameter name="browser" value="chrome" />
+    <parameter name="environment" value="test" />
+    <parameter name="addCodesNumberTestCaseID" value="TC_01" />
+    <parameter name="updateCodesNumberTestCaseID" value="TC_06" />
+     <parameter name="removeCodesNumberTestCaseID" value="TC_07" />
+    <parameter name="addCodesDataTypeTestCaseID" value="TC_02" />
+     <parameter name="addCodesActivityType" value="TC_02" />
+     <parameter name="addCodesAddressType" value="TC_04" />
+      <parameter name="validateThemeChange" value="TC_01" />
+        <parameter name="paginationCheck" value="TC_01,TC_02" />
+        <parameter name="searchInCodes" value="TC_01,TC_02" />
+        <parameter name="addCodesDataTypeTestCaseID" value="TC_08" />
+    <classes>
+      <!--  	<class name = "com.moveware.system.codes.ManageCodesNonUI">
+			 <methods>
+			    <exclude name="addCodesNumber" /> 
+			    <exclude name="addCodesDataType" />
+			    <exclude name="addCodesActivityType" />
+			     <exclude name="addCodesAddressType" />  
+			    <exclude name="removeCodesNumber" />
+				<exclude name="removeDataType" />
+				<include name="validateThemeChange" />
+			</methods> 
+      	</class>
+      	<class name = "com.moveware.testcases.TC_ThemeChangeValidation">
+			 <methods>
+			 	<include name="validateThemeChange" />
+			</methods> 
+      	</class>
+      	<class name = "com.moveware.testcases.TC_CodesCount">
+			 <methods>
+			 	<include name="CodesCount" />
+			</methods> 
+      	</class>
+      	<class name = "com.moveware.testcases.TC_CodesPaginationValidation">
+			 <methods>
+			 	<include name="paginationCheck" />
+			</methods> 
+      	</class>
+      	<class name = "com.moveware.testcases.TC_CodeSearch">
+			 <methods>
+			 	<include name="searchInCodes" />
+			</methods> 
+      	</class>
+      	<class name = "com.moveware.system.codes.ManageCodesNonUI">
+			 <methods>
+			 	<include name="addCodesNumber" />
+			</methods> 
+      	</class>
+      	
+      	<class name = "com.moveware.testcases.TC_CodesCount">
+			 <methods>
+			 	<include name="CodesCount" />
+			</methods> 
+      	</class>
+      	
+      	<class name = "com.moveware.testcases.TC_QuickMenu">
+			 <methods>
+			 	<include name="quickAdd" />
+			</methods> 
+      	</class>
+      	<class name = "com.moveware.system.codes.ManageCodesNonUI">
+			 <methods>
+			  <include name="addCodesNumber" />
+			 <exclude name="updateCodesNumber" />
+			 <exclude name="removeCodesNumber" />
+			 <exclude name="addCodesDataType" />
+			 	
+			 	
+			</methods> 
+      	</class> -->
+      	<class name = "com.moveware.testcases.TC_CodesCount">
+			 <methods>
+			 	<include name="CodesCount" />
+			</methods> 
+      	</class>
+      </classes>
+    
+  </test> <!-- Test -->
+  
+   
+  
+</suite> <!-- Suite -->

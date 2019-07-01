@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 7.096 sec <<< FAILURE! - in TestSuite
+runLogin(com.moveware.system.codes.AddCode)  Time elapsed: 6.764 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.moveware.system.codes.AddCode.runLogin(AddCode.java:25)
+

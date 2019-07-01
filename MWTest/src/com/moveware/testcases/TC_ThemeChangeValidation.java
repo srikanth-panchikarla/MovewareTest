@@ -1,0 +1,91 @@
+package com.moveware.testcases;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.moveware.genericfunctions.GenericFunctions;
+import com.moveware.objectRepository.HomePageObjects;
+import com.moveware.objectRepository.QuickMenuObjects;
+import com.moveware.objectRepository.SystemCodesNonUIObjects;
+import com.moveware.utilities.ReadMovewareTestExecutionProperties;
+import com.moveware.utilities.UserReport;
+import com.moveware.utilities.WaitHandler;
+
+
+
+public class TC_ThemeChangeValidation extends GenericFunctions {
+	private WebDriver driver;
+	//private String browser = "firefox";
+	//private String environment = "dev";
+	private Map<String, String> data = new HashMap<String, String>();
+	private Map<String, Map> data1=new HashMap<String, Map>();
+	private int timeout = 15;
+	public QuickMenuObjects qm;
+	public SystemCodesNonUIObjects sc;
+	public String sheetName = null ;
+	public String methodName=null;
+	public ExtentTest test  = null;
+	
+	
+	@Parameters({ "browser","environment","TestName" })
+	@BeforeMethod
+	public void loginToApplication(String browser,String environment, String testName ) throws IOException {
+		//System.out.println("loginToApplication()" +browser+ "" + environment);
+		 sheetName = this.getClass().getSimpleName();
+		 methodName = Thread.currentThread().getStackTrace()[1].getMethodName().toString();
+		 test = UserReport.createInstance(sheetName +":"+testName);
+		 driver = login(browser,test, environment);
+		//testPassWithoutScreenshot()..first parameter is test name , second parameter is Method and Third parameter is Message
+		UserReport.testPassWithScreenshot(driver,test, methodName , "Test Step Login Successfull:");
+		//UserReport.report.flush();
+	}
+	
+	@Parameters({"validateThemeChange","TestName"})
+	@Test
+	public void validateThemeChange(String testCaseID, String testName)
+	{
+		
+		//Initiate and Access elements belongs to HomePage
+				//eReport.test = eReport.report.createTest(sheetName +":" + testName + ": addCodesNumber() ");
+				//test.pass("You are in addCodesNumber()");
+				methodName = Thread.currentThread().getStackTrace()[1].getMethodName().toString();
+				UserReport.testInforation(test, "Currently executing addCodesNumber()");
+				//UserReport.testPassWithoutScreenshot( test, methodName ,"Test Step is passed:  ");
+				String[] testCaseIDs = testCaseID.split(",");
+				ReadMovewareTestExecutionProperties prop = ReadMovewareTestExecutionProperties.getInstance();
+				
+				String testDataPath = System.getProperty("user.dir") + prop.getProperty("inputDataPath")+ sheetName +".xlsx";
+				//System.out.println("File Name is "+ testDataPath);
+				data1 = GenericFunctions.readExcel(testDataPath,sheetName);
+				//Initiate and Access elements in Home Page
+				//After that, Select (in left side) Menu(Functionality) and SubMenu(Sub Functionality) .. Example System->Codes Non UI
+				qm = QuickMenuObjects.initiateMenuPageFactory(driver,data, timeout);
+				//qm.clickOnMyProfile();
+				
+				//qm.selectTheme();
+				//selectValueInDropDown(xPathDropDownValues, value);
+			//	hp.executeFunctionalitySequence(driver,test, "System","Codes", timeout);
+				
+				for(int i=0; i <testCaseIDs.length; i++) {
+					
+					
+					qm.validateThemeColorChanged(driver, test, data1,testCaseIDs[i], timeout);
+					//sc.executeFunctionalitySequence(driver, test, data1,testCaseIDs[i], timeout);
+					UserReport.testPassWithScreenshot(driver, test, methodName ,"Test Step is passed for --> testCaseIDs[i]: ");
+					
+					
+				}
+				//UserReport.testFail(driver,test,methodName, "Test Step failed: " );
+		
+		
+	}
+	
+	
+}
