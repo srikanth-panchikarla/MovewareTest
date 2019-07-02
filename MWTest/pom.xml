@@ -129,10 +129,10 @@
   </dependencies>
   
   <build>
-    <sourceDirectory>C:\Users\srikanthp\MWAutomation\MovewareAutomationframework\src</sourceDirectory>
-    <testSourceDirectory>C:\Users\srikanthp\MWAutomation\MovewareAutomationframework\src</testSourceDirectory>
-    <outputDirectory>C:\Users\srikanthp\MWAutomation\MovewareAutomationframework\target\classes</outputDirectory>
-    <testOutputDirectory>C:\Users\srikanthp\MWAutomation\MovewareAutomationframework\target\test-classes</testOutputDirectory>
+     <sourceDirectory>C:\Users\srikanthp\git\repository4\MWTest\src</sourceDirectory>
+    <testSourceDirectory>C:\Users\srikanthp\git\repository4\MWTest\src</testSourceDirectory>
+    <outputDirectory>C:\Users\srikanthp\git\repository4\MWTest\target\classes</outputDirectory>
+    <testOutputDirectory>C:\Users\srikanthp\git\repository4\MWTest\target\test-classes</testOutputDirectory>
 
 	<plugins>
 		<!-- Compiler plug-in -->
