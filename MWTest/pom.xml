@@ -9,7 +9,7 @@
 		<jdk.level>1.8</jdk.level>
 		<jre.level>1.8</jre.level>
 		
-		<testNGXMLFIlePath>C:\MovewareAutomation\MovewareAutomation</testNGXMLFIlePath>
+		<testNGXMLFIlePath>C:\Users\srikanthp\git\repository4\MWTest</testNGXMLFIlePath>
   </properties>
   <dependencies>
 	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
